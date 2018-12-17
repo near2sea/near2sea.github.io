@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "阿里云移动平台集成"
-date: 2018-11-08 12:00:12 +0800
+title: 阿里云移动平台集成
+date: '2018-11-08 12:00:12 +0800'
 comments: true
 categories: ios
+abbrlink: 27481
 ---
 
 ## 移动数据分析

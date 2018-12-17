@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Vue 应用性能优化指南"
-date: 2018-10-31 18:33:02 +0800
+title: Vue 应用性能优化指南
+date: '2018-10-31 18:33:02 +0800'
 comments: true
 categories: vue
+abbrlink: 31102
 ---
 
 ## Vue 应用性能优化指南

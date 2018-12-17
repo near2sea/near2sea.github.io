@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "授权苹果健康"
-date: 2018-10-29 17:56:18 +0800
+title: 授权苹果健康
+date: '2018-10-29 17:56:18 +0800'
 comments: true
 categories: ios
+abbrlink: 62352
 ---
 
 ## 简述

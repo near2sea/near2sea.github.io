@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "git命令"
-date: 2018-11-14 14:37:28 +0800
+title: git命令
+date: '2018-11-14 14:37:28 +0800'
 comments: true
 categories: git
+abbrlink: 36736
 ---
 
 ## 一、新建代码库

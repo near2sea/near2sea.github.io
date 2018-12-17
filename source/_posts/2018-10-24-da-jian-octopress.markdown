@@ -1,10 +1,11 @@
 ---
 layout: post
-title: "搭建Octopress"
-date: 2018-10-24 12:07:05 +0800
+title: 搭建Octopress
+date: '2018-10-24 12:07:05 +0800'
 comments: true
 categories:
-- Octopress
+  - Octopress
+abbrlink: 15002
 ---
 
 在Github上像是写代码一样写博客有一段时间了，有必要把搭建博客的方法整理一下，方便更多的人DIY，享受一下“博客驱动开发”。

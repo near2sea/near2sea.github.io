@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Vue环境搭建"
-date: 2018-11-05 12:20:23 +0800
+title: Vue环境搭建
+date: '2018-11-05 12:20:23 +0800'
 comments: true
 categories: vue
+abbrlink: 32040
 ---
 
 ## vsCode插件安装

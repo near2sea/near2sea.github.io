@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "EasyReact初识"
-date: 2018-10-25 10:03:04 +0800
+title: EasyReact初识
+date: '2018-10-25 10:03:04 +0800'
 comments: true
-categories: 
+abbrlink: 23913
+categories:
 ---
 ## 美团客户端响应式框架 EasyReact 
 ### 前言

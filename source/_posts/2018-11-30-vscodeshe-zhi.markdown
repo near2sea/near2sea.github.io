@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Vscode设置"
-date: 2018-11-30 14:22:40 +0800
+title: Vscode设置
+date: '2018-11-30 14:22:40 +0800'
 comments: true
 categories: vscode
+abbrlink: 53471
 ---
 
 ## vscode开发工具设置

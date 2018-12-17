@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "zsh环境安装"
-date: 2018-12-15 11:19:54 +0800
+title: zsh环境安装
+date: '2018-12-15 11:19:54 +0800'
 comments: true
 categories: zsh
+abbrlink: 65257
 ---
 
 ### oh-my-zsh

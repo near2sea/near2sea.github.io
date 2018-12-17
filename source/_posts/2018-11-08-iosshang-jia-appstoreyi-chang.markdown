@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "ios上加AppStore异常"
-date: 2018-11-08 09:32:34 +0800
+title: ios上加AppStore异常
+date: '2018-11-08 09:32:34 +0800'
 comments: true
 categories: ios
+abbrlink: 30405
 ---
 
 ## upload到appStore时xcode出来的异常信息

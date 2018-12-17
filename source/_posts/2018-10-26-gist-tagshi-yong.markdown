@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Octopress插件使用"
-date: 2018-10-26 12:17:16 +0800
+title: Octopress插件使用
+date: '2018-10-26 12:17:16 +0800'
 comments: true
 categories: 插件
+abbrlink: 39493
 ---
 
 # octopress插件使用
