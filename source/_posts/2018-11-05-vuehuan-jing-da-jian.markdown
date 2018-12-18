@@ -3,7 +3,8 @@ layout: post
 title: Vue环境搭建
 date: '2018-11-05 12:20:23 +0800'
 comments: true
-categories: vue
+categories: 
+- 前端
 abbrlink: 32040
 ---
 

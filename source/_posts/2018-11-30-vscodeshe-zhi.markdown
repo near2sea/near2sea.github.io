@@ -3,7 +3,8 @@ layout: post
 title: Vscode设置
 date: '2018-11-30 14:22:40 +0800'
 comments: true
-categories: vscode
+categories: 
+- 工具
 abbrlink: 53471
 ---
 

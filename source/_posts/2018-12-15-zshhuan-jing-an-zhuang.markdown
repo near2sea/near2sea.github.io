@@ -3,7 +3,8 @@ layout: post
 title: zsh环境安装
 date: '2018-12-15 11:19:54 +0800'
 comments: true
-categories: zsh
+categories: 
+- 工具
 abbrlink: 65257
 ---
 
