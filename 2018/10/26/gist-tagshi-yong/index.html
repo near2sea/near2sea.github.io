@@ -1,3 +1,341 @@
-<!DOCTYPE HTML><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta http-equiv="Cache-Control" content="no-siteapp"><meta http-equiv="Cache-Control" content="no-transform"><meta name="renderer" content="webkit|ie-comp|ie-stand"><meta name="apple-mobile-web-app-capable" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no,email=no,adress=no"><meta name="browsermode" content="application"><meta name="screen-orientation" content="portrait"><link rel="dns-prefetch" href="https://near2sea.github.io"><meta name="robots" content="all"><meta name="google" content="all"><meta name="googlebot" content="all"><meta name="verify" content="all"><title>Octopress插件使用 | Hexo</title><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/css/bootstrap.min.css?rev=9d7357954c90e1720da1028d332e7c4c"><link rel="stylesheet" href="/css/font-awesome.min.css?rev=7d7c67beb5a3ece63f0a947be957099b"><link rel="stylesheet" href="/css/style.css?rev=76dc41f254c09a6c5c61ad11aaabb027"><div class="hide"><script type="text/javascript">var cnzz_protocol="https:"==document.location.protocol?" https://":" http://";document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='"+cnzz_protocol+"s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"))</script></div></head></html><!--[if lte IE 8]><style>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Hexo">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://near2sea.github.io">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Octopress插件使用 | Hexo</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
     html{ font-size: 1em }
-</style><![endif]--><!--[if lte IE 9]><div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div><![endif]--><body><header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"><div class="main-header-box"><a class="header-avatar" href="/" title="near2sea"><img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block"></a><div class="branding"><img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block"></div></div></header><nav class="main-navigation"><div class="container"><div class="row"><div class="col-sm-12"><div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav"><span class="sr-only"></span><i class="fa fa-bars"></i></span> <a class="navbar-brand" href="https://near2sea.github.io">Hexo</a></div><div class="collapse navbar-collapse" id="main-menu"><ul class="menu"><li role="presentation" class="text-center"><a href="/"><i class="fa"></i> 首页</a></li><li role="presentation" class="text-center"><a href="/categories/前端/"><i class="fa"></i> 前端</a></li><li role="presentation" class="text-center"><a href="/categories/工具/"><i class="fa"></i> 工具</a></li><li role="presentation" class="text-center"><a href="/archives/"><i class="fa"></i> 时间轴</a></li></ul></div></div></div></div></nav><section class="content-wrap"><div class="container"><div class="row"><main class="col-md-8 main-content m-post"><p id="process"></p><article class="post"><div class="post-head"><h1 id="Octopress插件使用">Octopress插件使用</h1><div class="post-meta"><span class="categories-meta fa-wrap"><i class="fa fa-folder-open-o"></i> <a href="/categories/插件">插件</a></span><span class="fa-wrap"><i class="fa fa-tags"></i><span class="tags-meta"></span></span><span class="fa-wrap"><i class="fa fa-clock-o"></i> <span class="date-meta">2018/10/26</span></span></div></div><div class="post-body post-content"><h1 id="octopress插件使用"><a href="#octopress插件使用" class="headerlink" title="octopress插件使用"></a>octopress插件使用</h1><h2 id="codeblock插件"><a href="#codeblock插件" class="headerlink" title="codeblock插件"></a>codeblock插件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Awesome code snippet</span><br></pre></td></tr></table></figure><a id="more"></a><blockquote><p>Last night I lay in bed looking up at the stars in the sky and I thought to myself, where the heck is the ceiling.</p></blockquote><blockquote><p>Last night I lay in bed looking up at the stars in the sky and I thought to myself, where the heck is the ceiling.</p></blockquote><h3 id="发邮件反馈插件"><a href="#发邮件反馈插件" class="headerlink" title="发邮件反馈插件"></a>发邮件反馈插件</h3><ul><li><a href="https://getsimpleform.com/" target="_blank" rel="noopener">https://getsimpleform.com/</a></li></ul><h3 id="集成图表"><a href="#集成图表" class="headerlink" title="集成图表"></a>集成图表</h3><ul><li><a href="http://mostlyblather.com/blog/2015/05/23/mermaid-jekyll-octopress/" target="_blank" rel="noopener">http://mostlyblather.com/blog/2015/05/23/mermaid-jekyll-octopress/</a></li></ul><h3 id="octopress转到hexo"><a href="#octopress转到hexo" class="headerlink" title="octopress转到hexo"></a>octopress转到hexo</h3><ul><li><a href="https://changchen.me/blog/20180807/octopress-to-hexo/" target="_blank" rel="noopener">https://changchen.me/blog/20180807/octopress-to-hexo/</a></li></ul><h3 id="octopress集成OTC"><a href="#octopress集成OTC" class="headerlink" title="octopress集成OTC"></a>octopress集成OTC</h3><ul><li><a href="https://github.com/dafi/jekyll-toc-generator" target="_blank" rel="noopener">https://github.com/dafi/jekyll-toc-generator</a></li></ul><h4 id="安装nokogiri"><a href="#安装nokogiri" class="headerlink" title="安装nokogiri"></a>安装nokogiri</h4><ol><li>To use tocGenerator.rb you need <a href="http://www.nokogiri.org/" target="_blank" rel="noopener">nokogiri</a></li><li>copy the file tocGenerator.rb into the _plugins folder</li><li>copy the file css/toc.css to you css site and include into _layouts (this is recommended but not necessary)</li><li>finished</li></ol><h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><figure class="highlight html"><figcaption><span>source/_layout/default.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;&#123; page.title &#125;&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- This css contains the default style for TOC --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"screen"</span> <span class="attr">href</span>=<span class="string">"css/toc.css"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        &#123;&#123; content | toc_generate &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="安装category插件"><a href="#安装category插件" class="headerlink" title="安装category插件"></a>安装category插件</h3><ul><li>创建文件 <em>category_list.rb</em>，放在pluginss目录下</li></ul><figure class="highlight ruby"><figcaption><span>plugins/category_list.rb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">Jekyll</span></span></span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">CategoryCloud</span> &lt; Liquid::Tag</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(tag_name, markup, tokens)</span></span></span><br><span class="line">      @opts = &#123;&#125;</span><br><span class="line">      <span class="keyword">if</span> markup.strip =~ <span class="regexp">/\s*counter:(\w+)/iu</span></span><br><span class="line">        @opts[<span class="string">'counter'</span>] = ($1 == <span class="string">'true'</span>)</span><br><span class="line">        markup = markup.strip.sub(<span class="regexp">/counter:\w+/iu</span>,<span class="string">''</span>)</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">      <span class="keyword">super</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(context)</span></span></span><br><span class="line">      lists = &#123;&#125;</span><br><span class="line">      max, min = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">      config = context.registers[<span class="symbol">:site</span>].config</span><br><span class="line">      category_dir = config[<span class="string">'root'</span>] + config[<span class="string">'category_dir'</span>] + <span class="string">'/'</span></span><br><span class="line">      categories = context.registers[<span class="symbol">:site</span>].categories</span><br><span class="line">      categories.keys.sort_by&#123; <span class="params">|str|</span> str.downcase &#125;.each <span class="keyword">do</span> <span class="params">|category|</span></span><br><span class="line">        count = categories[category].count</span><br><span class="line">        lists[category] = count</span><br><span class="line">        max = count <span class="keyword">if</span> count &gt; max</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">      html = <span class="string">''</span></span><br><span class="line">      lists.each <span class="keyword">do</span> <span class="params">| category, counter |</span></span><br><span class="line">        url = category_dir + category.to_url.gsub(<span class="regexp">/_|\P&#123;Word&#125;/u</span>, <span class="string">'-'</span>).gsub(<span class="regexp">/-&#123;2,&#125;/u</span>, <span class="string">'-'</span>).downcase</span><br><span class="line">        style = <span class="string">"font-size: <span class="subst">#&#123;<span class="number">100</span> + (<span class="number">60</span> * Float(counter)/max)&#125;</span>%"</span></span><br><span class="line">        html &lt;&lt; <span class="string">"&lt;a href='<span class="subst">#&#123;url&#125;</span>' style='<span class="subst">#&#123;style&#125;</span>'&gt;<span class="subst">#&#123;category&#125;</span>"</span></span><br><span class="line">        <span class="keyword">if</span> @opts[<span class="string">'counter'</span>]</span><br><span class="line">          html &lt;&lt; <span class="string">"(<span class="subst">#&#123;categories[category].count&#125;</span>)"</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        html &lt;&lt; <span class="string">"&lt;/a&gt; "</span></span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">      html</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">CategoryList</span> &lt; Liquid::Tag</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(tag_name, markup, tokens)</span></span></span><br><span class="line">      @opts = &#123;&#125;</span><br><span class="line">      <span class="keyword">if</span> markup.strip =~ <span class="regexp">/\s*counter:(\w+)/iu</span></span><br><span class="line">        @opts[<span class="string">'counter'</span>] = ($1 == <span class="string">'true'</span>)</span><br><span class="line">        markup = markup.strip.sub(<span class="regexp">/counter:\w+/iu</span>,<span class="string">''</span>)</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">      <span class="keyword">super</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(context)</span></span></span><br><span class="line">      html = <span class="string">""</span></span><br><span class="line">      config = context.registers[<span class="symbol">:site</span>].config</span><br><span class="line">      category_dir = config[<span class="string">'root'</span>] + config[<span class="string">'category_dir'</span>] + <span class="string">'/'</span></span><br><span class="line">      categories = context.registers[<span class="symbol">:site</span>].categories</span><br><span class="line">      categories.keys.sort_by&#123; <span class="params">|str|</span> str.downcase &#125;.each <span class="keyword">do</span> <span class="params">|category|</span></span><br><span class="line">        url = category_dir + category.to_url.gsub(<span class="regexp">/_|\P&#123;Word&#125;/u</span>, <span class="string">'-'</span>).gsub(<span class="regexp">/-&#123;2,&#125;/u</span>, <span class="string">'-'</span>).downcase</span><br><span class="line">        html &lt;&lt; <span class="string">"&lt;li&gt;&lt;a href='<span class="subst">#&#123;url&#125;</span>'&gt;<span class="subst">#&#123;category&#125;</span>"</span></span><br><span class="line">        <span class="keyword">if</span> @opts[<span class="string">'counter'</span>]</span><br><span class="line">          html &lt;&lt; <span class="string">" (<span class="subst">#&#123;categories[category].count&#125;</span>)"</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        html &lt;&lt; <span class="string">"&lt;/a&gt;&lt;/li&gt;"</span></span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">      html</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">Liquid::Template.register_tag(<span class="string">'category_cloud'</span>, Jekyll::CategoryCloud)</span><br><span class="line">Liquid::Template.register_tag(<span class="string">'category_list'</span>, Jekyll::CategoryList)</span><br></pre></td></tr></table></figure><ul><li>在目录<em>source/_includes/custom/asides</em> 创建<em>category_list.html</em></li></ul><figure class="highlight html"><figcaption><span>category_list.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Categories<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"category-list"</span>&gt;</span>&#123; % category_list counter:true % &#125;<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>修改根目录下的<em>_config.yml</em>文件</li></ul><figure class="highlight yml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">default_asides:</span> <span class="string">[...,</span> <span class="string">custom/asides/category_list.html]</span></span><br></pre></td></tr></table></figure><ul><li>在目录<em>blog/categories/</em> 创建 <em>all.html</em></li></ul><figure class="highlight html"><figcaption><span>all.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: page</span><br><span class="line">title: "categories"</span><br><span class="line">footer: false</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&#123; % category_list [counter:true] % &#125;</span><br></pre></td></tr></table></figure><ul><li>修改目录<em>source/_includes/custom/navigation.html</em>文件，增加一个分类入口</li></ul><figure class="highlight html"><figcaption><span>source/_includes/custom/navigation.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"main-navigation"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; root_url &#125;&#125;/"</span>&gt;</span>Blog<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; root_url &#125;&#125;/blog/archives"</span>&gt;</span>Archives<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 增加分类入口 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; root_url &#125;&#125;/blog/categories/all.html"</span>&gt;</span>Categories<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></div><div class="post-footer"><div>转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a></div><div></div></div></article><div class="article-nav prev-next-wrap clearfix"><a href="/2018/10/29/shou-quan-ping-guo-jian-kang/" class="pre-post btn btn-default" title="授权苹果健康"><i class="fa fa-angle-left fa-fw"></i> <span class="hidden-lg">上一篇</span> <span class="hidden-xs">授权苹果健康</span></a> <a href="/2018/10/25/dai-ma-pian-duan-gao-liang/" class="next-post btn btn-default" title="EasyReact初识"><span class="hidden-lg">下一篇</span> <span class="hidden-xs">EasyReact初识</span><i class="fa fa-angle-right fa-fw"></i></a></div><div id="comments"><div id="vcomments" class="valine"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="/assets/valine.min.js"></script><script>new Valine({av:AV,el:"#vcomments",appId:"PAHgvbYH1v1oIQ7J9jqQrXmf-gzGzoHsz",appKey:"cb2xADzMaT9QTQ3Q4B2M03oq",placeholder:"说点什么吧",notify:!1,verify:!1,avatar:"mm",meta:"nick,mail".split(","),pageSize:"10",path:window.location.pathname,lang:"zh-CN".toLowerCase()})</script></div></main><aside id="article-toc" role="navigation" class="col-md-4"><div class="widget"><h3 class="title">文章目录</h3><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#octopress插件使用"><span class="toc-text">octopress插件使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#codeblock插件"><span class="toc-text">codeblock插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#发邮件反馈插件"><span class="toc-text">发邮件反馈插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集成图表"><span class="toc-text">集成图表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#octopress转到hexo"><span class="toc-text">octopress转到hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#octopress集成OTC"><span class="toc-text">octopress集成OTC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装nokogiri"><span class="toc-text">安装nokogiri</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何使用"><span class="toc-text">如何使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装category插件"><span class="toc-text">安装category插件</span></a></li></ol></li></ol></li></ol></div></aside></div></div></section><footer class="main-footer"><div class="container"><div class="row"></div></div></footer><a id="back-to-top" class="icon-btn hide"><i class="fa fa-chevron-up"></i></a><div class="copyright"><div class="container"><div class="row"><div class="col-sm-12"><div class="busuanzi"></div></div><div class="col-sm-12"><span>Copyright &copy; 2017</span> | <span>Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a></span> | <span>Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a></span></div></div></div></div><script src="/js/app.js?rev=26a1b6fecd389c0121b7027a299aa7c0"></script></body>
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="near2sea">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://near2sea.github.io">Hexo</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Octopress插件使用">
+            
+	            Octopress插件使用
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/插件">
+            插件
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/10/26</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="octopress插件使用"><a href="#octopress插件使用" class="headerlink" title="octopress插件使用"></a>octopress插件使用</h1><h2 id="codeblock插件"><a href="#codeblock插件" class="headerlink" title="codeblock插件"></a>codeblock插件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Awesome code snippet</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<blockquote>
+<p>Last night I lay in bed looking up at the stars in the sky and I thought to myself, where the heck is the ceiling.</p>
+</blockquote>
+<blockquote><p>Last night I lay in bed looking up at the stars in the sky and I thought to myself, where the heck is the ceiling.</p>
+</blockquote>
+<h3 id="发邮件反馈插件"><a href="#发邮件反馈插件" class="headerlink" title="发邮件反馈插件"></a>发邮件反馈插件</h3><ul>
+<li><a href="https://getsimpleform.com/" target="_blank" rel="noopener">https://getsimpleform.com/</a></li>
+</ul>
+<h3 id="集成图表"><a href="#集成图表" class="headerlink" title="集成图表"></a>集成图表</h3><ul>
+<li><a href="http://mostlyblather.com/blog/2015/05/23/mermaid-jekyll-octopress/" target="_blank" rel="noopener">http://mostlyblather.com/blog/2015/05/23/mermaid-jekyll-octopress/</a></li>
+</ul>
+<h3 id="octopress转到hexo"><a href="#octopress转到hexo" class="headerlink" title="octopress转到hexo"></a>octopress转到hexo</h3><ul>
+<li><a href="https://changchen.me/blog/20180807/octopress-to-hexo/" target="_blank" rel="noopener">https://changchen.me/blog/20180807/octopress-to-hexo/</a></li>
+</ul>
+<h3 id="octopress集成OTC"><a href="#octopress集成OTC" class="headerlink" title="octopress集成OTC"></a>octopress集成OTC</h3><ul>
+<li><a href="https://github.com/dafi/jekyll-toc-generator" target="_blank" rel="noopener">https://github.com/dafi/jekyll-toc-generator</a></li>
+</ul>
+<h4 id="安装nokogiri"><a href="#安装nokogiri" class="headerlink" title="安装nokogiri"></a>安装nokogiri</h4><ol>
+<li>To use tocGenerator.rb you need <a href="http://www.nokogiri.org/" target="_blank" rel="noopener">nokogiri</a></li>
+<li>copy the file tocGenerator.rb into the _plugins folder</li>
+<li>copy the file css/toc.css to you css site and include into _layouts (this is recommended but not necessary)</li>
+<li>finished</li>
+</ol>
+<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><figure class="highlight html"><figcaption><span>source/_layout/default.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;&#123; page.title &#125;&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- This css contains the default style for TOC --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"screen"</span> <span class="attr">href</span>=<span class="string">"css/toc.css"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        &#123;&#123; content | toc_generate &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装category插件"><a href="#安装category插件" class="headerlink" title="安装category插件"></a>安装category插件</h3><ul>
+<li>创建文件 <em>category_list.rb</em>，放在pluginss目录下</li>
+</ul>
+<figure class="highlight ruby"><figcaption><span>plugins/category_list.rb</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">Jekyll</span></span></span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">CategoryCloud</span> &lt; Liquid::Tag</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(tag_name, markup, tokens)</span></span></span><br><span class="line">      @opts = &#123;&#125;</span><br><span class="line">      <span class="keyword">if</span> markup.strip =~ <span class="regexp">/\s*counter:(\w+)/iu</span></span><br><span class="line">        @opts[<span class="string">'counter'</span>] = ($1 == <span class="string">'true'</span>)</span><br><span class="line">        markup = markup.strip.sub(<span class="regexp">/counter:\w+/iu</span>,<span class="string">''</span>)</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">      <span class="keyword">super</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(context)</span></span></span><br><span class="line">      lists = &#123;&#125;</span><br><span class="line">      max, min = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">      config = context.registers[<span class="symbol">:site</span>].config</span><br><span class="line">      category_dir = config[<span class="string">'root'</span>] + config[<span class="string">'category_dir'</span>] + <span class="string">'/'</span></span><br><span class="line">      categories = context.registers[<span class="symbol">:site</span>].categories</span><br><span class="line">      categories.keys.sort_by&#123; <span class="params">|str|</span> str.downcase &#125;.each <span class="keyword">do</span> <span class="params">|category|</span></span><br><span class="line">        count = categories[category].count</span><br><span class="line">        lists[category] = count</span><br><span class="line">        max = count <span class="keyword">if</span> count &gt; max</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">      html = <span class="string">''</span></span><br><span class="line">      lists.each <span class="keyword">do</span> <span class="params">| category, counter |</span></span><br><span class="line">        url = category_dir + category.to_url.gsub(<span class="regexp">/_|\P&#123;Word&#125;/u</span>, <span class="string">'-'</span>).gsub(<span class="regexp">/-&#123;2,&#125;/u</span>, <span class="string">'-'</span>).downcase</span><br><span class="line">        style = <span class="string">"font-size: <span class="subst">#&#123;<span class="number">100</span> + (<span class="number">60</span> * Float(counter)/max)&#125;</span>%"</span></span><br><span class="line">        html &lt;&lt; <span class="string">"&lt;a href='<span class="subst">#&#123;url&#125;</span>' style='<span class="subst">#&#123;style&#125;</span>'&gt;<span class="subst">#&#123;category&#125;</span>"</span></span><br><span class="line">        <span class="keyword">if</span> @opts[<span class="string">'counter'</span>]</span><br><span class="line">          html &lt;&lt; <span class="string">"(<span class="subst">#&#123;categories[category].count&#125;</span>)"</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        html &lt;&lt; <span class="string">"&lt;/a&gt; "</span></span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">      html</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">CategoryList</span> &lt; Liquid::Tag</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(tag_name, markup, tokens)</span></span></span><br><span class="line">      @opts = &#123;&#125;</span><br><span class="line">      <span class="keyword">if</span> markup.strip =~ <span class="regexp">/\s*counter:(\w+)/iu</span></span><br><span class="line">        @opts[<span class="string">'counter'</span>] = ($1 == <span class="string">'true'</span>)</span><br><span class="line">        markup = markup.strip.sub(<span class="regexp">/counter:\w+/iu</span>,<span class="string">''</span>)</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">      <span class="keyword">super</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(context)</span></span></span><br><span class="line">      html = <span class="string">""</span></span><br><span class="line">      config = context.registers[<span class="symbol">:site</span>].config</span><br><span class="line">      category_dir = config[<span class="string">'root'</span>] + config[<span class="string">'category_dir'</span>] + <span class="string">'/'</span></span><br><span class="line">      categories = context.registers[<span class="symbol">:site</span>].categories</span><br><span class="line">      categories.keys.sort_by&#123; <span class="params">|str|</span> str.downcase &#125;.each <span class="keyword">do</span> <span class="params">|category|</span></span><br><span class="line">        url = category_dir + category.to_url.gsub(<span class="regexp">/_|\P&#123;Word&#125;/u</span>, <span class="string">'-'</span>).gsub(<span class="regexp">/-&#123;2,&#125;/u</span>, <span class="string">'-'</span>).downcase</span><br><span class="line">        html &lt;&lt; <span class="string">"&lt;li&gt;&lt;a href='<span class="subst">#&#123;url&#125;</span>'&gt;<span class="subst">#&#123;category&#125;</span>"</span></span><br><span class="line">        <span class="keyword">if</span> @opts[<span class="string">'counter'</span>]</span><br><span class="line">          html &lt;&lt; <span class="string">" (<span class="subst">#&#123;categories[category].count&#125;</span>)"</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        html &lt;&lt; <span class="string">"&lt;/a&gt;&lt;/li&gt;"</span></span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">      html</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">Liquid::Template.register_tag(<span class="string">'category_cloud'</span>, Jekyll::CategoryCloud)</span><br><span class="line">Liquid::Template.register_tag(<span class="string">'category_list'</span>, Jekyll::CategoryList)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在目录<em>source/_includes/custom/asides</em> 创建<em>category_list.html</em></li>
+</ul>
+<figure class="highlight html"><figcaption><span>category_list.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Categories<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"category-list"</span>&gt;</span>&#123; % category_list counter:true % &#125;<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改根目录下的<em>_config.yml</em>文件</li>
+</ul>
+<figure class="highlight yml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">default_asides:</span> <span class="string">[...,</span> <span class="string">custom/asides/category_list.html]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在目录<em>blog/categories/</em> 创建 <em>all.html</em></li>
+</ul>
+<figure class="highlight html"><figcaption><span>all.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: page</span><br><span class="line">title: "categories"</span><br><span class="line">footer: false</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&#123; % category_list [counter:true] % &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改目录<em>source/_includes/custom/navigation.html</em>文件，增加一个分类入口 </li>
+</ul>
+<figure class="highlight html"><figcaption><span>source/_includes/custom/navigation.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"main-navigation"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; root_url &#125;&#125;/"</span>&gt;</span>Blog<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; root_url &#125;&#125;/blog/archives"</span>&gt;</span>Archives<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 增加分类入口 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; root_url &#125;&#125;/blog/categories/all.html"</span>&gt;</span>Categories<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/10/29/shou-quan-ping-guo-jian-kang/" class="pre-post btn btn-default" title="授权苹果健康">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">授权苹果健康</span>
+        </a>
+    
+    
+        <a href="/2018/10/25/dai-ma-pian-duan-gao-liang/" class="next-post btn btn-default" title="EasyReact初识">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">EasyReact初识</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'PAHgvbYH1v1oIQ7J9jqQrXmf-gzGzoHsz',
+            appKey: 'cb2xADzMaT9QTQ3Q4B2M03oq',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#octopress插件使用"><span class="toc-text">octopress插件使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#codeblock插件"><span class="toc-text">codeblock插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#发邮件反馈插件"><span class="toc-text">发邮件反馈插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集成图表"><span class="toc-text">集成图表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#octopress转到hexo"><span class="toc-text">octopress转到hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#octopress集成OTC"><span class="toc-text">octopress集成OTC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装nokogiri"><span class="toc-text">安装nokogiri</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何使用"><span class="toc-text">如何使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装category插件"><span class="toc-text">安装category插件</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

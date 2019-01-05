@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>手机端调试H5 | Hexo</title>
+<title>ios小结presentViewController延迟问题 | Hexo</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -128,9 +128,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="手机端调试H5">
+        <h1 id="ios小结presentViewController延迟问题">
             
-	            手机端调试H5
+	            ios小结presentViewController延迟问题
             
         </h1>
         <div class="post-meta">
@@ -138,8 +138,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/h5">
-            h5
+        <a href="/categories/前端">
+            前端
         </a>
     </span>
     
@@ -150,6 +150,10 @@
         <span class="tags-meta">
             
                 
+                    <a href="/tags/ios" title="ios">
+                        ios
+                    </a>
+                
             
         </span>
     </span>
@@ -159,7 +163,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2018/12/07</span>
+            <span class="date-meta">2019/01/05</span>
         </span>
         
     
@@ -170,16 +174,17 @@
     </div>
     
     <div class="post-body post-content">
-        <h2 id="iOS调试h5"><a href="#iOS调试h5" class="headerlink" title="iOS调试h5"></a>iOS调试h5</h2><ol>
-<li>打开苹果手机<strong>web 检查器</strong>(设置 &gt; Safari浏览器 &gt; 高级 Web检查器),一般情况下默认是开启的</li>
-<li>打开Mac 上的<strong>Safari</strong>的<strong>开发</strong>菜单</li>
-<li>在Mac Aafari浏览器中选择调试页面(开发菜单 &gt; iphone &gt; 对应页面地址)</li>
-<li>点击地址后弹出控制台，方便调试页面的元素、网络请求等</li>
-</ol>
-<h2 id="Android调试h5"><a href="#Android调试h5" class="headerlink" title="Android调试h5"></a>Android调试h5</h2><ul>
-<li>手机打开usb调试模式，确保手机连上电脑, 打开chrome浏览器，输入<code>chrome://inspect</code>，远程调试页面</li>
+        <h1 id="iOS小结-解决presentViewController延迟问题"><a href="#iOS小结-解决presentViewController延迟问题" class="headerlink" title="iOS小结(解决presentViewController延迟问题)"></a>iOS小结(解决presentViewController延迟问题)</h1><p>在 iOS 中，当使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-(void)presentViewController:(UIViewController*)viewControllerToPresent animated:(BOOL)flag completion:(void (^__nullable)(void))completion</span><br></pre></td></tr></table></figure>
+<p>方法进行界面跳转的时候，有时候会出现延迟，这个延迟有时候会有好几秒的时间才会执行 completion，有时候干脆就一直不会跳转。</p>
+<ul>
+<li>由于某种原因，<code>presentViewController</code>跳转时completion的内容并不会真的马上触发执行，除非有一个主线程事件触发这种消费。比如在弹出慢的时候，你随便点击一下屏幕，马上就能弹出来</li>
 </ul>
-
+<p>所以得出相应的解决方法：</p>
+<p>1.在主线程中执行跳转：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dispatch_async(dispatch_get_main_queue(), ^(void)&#123;</span><br><span class="line">            [currentVC presentViewController:presentVC animated:YES completion:^&#123;</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<p>2.在执行跳转前唤醒主线程,<code>WakeUpMainThread</code>方法它的作用只是唤醒主线程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self performSelectorOnMainThread:@selector(WakeUpMainThread) withObject:nil waitUntilDone:NO];</span><br></pre></td></tr></table></figure>
     </div>
     
     <div class="post-footer">
@@ -196,15 +201,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/12/15/zshhuan-jing-an-zhuang/" class="pre-post btn btn-default" title="zsh环境安装">
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">zsh环境安装</span>
-        </a>
     
-    
-        <a href="/2018/11/30/vscodeshe-zhi/" class="next-post btn btn-default" title="Vscode设置">
+        <a href="/2018/12/20/css技巧与经验/" class="next-post btn btn-default" title="css技巧与经验">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Vscode设置</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">css技巧与经验</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -247,7 +247,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#iOS调试h5"><span class="toc-text">iOS调试h5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android调试h5"><span class="toc-text">Android调试h5</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS小结-解决presentViewController延迟问题"><span class="toc-text">iOS小结(解决presentViewController延迟问题)</span></a></li></ol>
         
     </div>
 </aside>

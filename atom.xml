@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://near2sea.github.io/"/>
-  <updated>2018-12-20T04:21:32.174Z</updated>
+  <updated>2019-01-05T09:21:37.480Z</updated>
   <id>https://near2sea.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ios小结presentViewController延迟问题</title>
+    <link href="https://near2sea.github.io/2019/01/05/ios%E5%B0%8F%E7%BB%93presentViewController%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/"/>
+    <id>https://near2sea.github.io/2019/01/05/ios小结presentViewController延迟问题/</id>
+    <published>2019-01-05T09:17:23.000Z</published>
+    <updated>2019-01-05T09:21:37.480Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iOS小结-解决presentViewController延迟问题"><a href="#iOS小结-解决presentViewController延迟问题" class="headerlink" title="iOS小结(解决presentViewController延迟问题)"></a>iOS小结(解决presentViewController延迟问题)</h1><p>在 iOS 中，当使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-(void)presentViewController:(UIViewController*)viewControllerToPresent animated:(BOOL)flag completion:(void (^__nullable)(void))completion</span><br></pre></td></tr></table></figure><p>方法进行界面跳转的时候，有时候会出现延迟，这个延迟有时候会有好几秒的时间才会执行 completion，有时候干脆就一直不会跳转。</p><ul><li>由于某种原因，<code>presentViewController</code>跳转时completion的内容并不会真的马上触发执行，除非有一个主线程事件触发这种消费。比如在弹出慢的时候，你随便点击一下屏幕，马上就能弹出来</li></ul><p>所以得出相应的解决方法：</p><p>1.在主线程中执行跳转：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dispatch_async(dispatch_get_main_queue(), ^(void)&#123;</span><br><span class="line">            [currentVC presentViewController:presentVC animated:YES completion:^&#123;</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure><p>2.在执行跳转前唤醒主线程,<code>WakeUpMainThread</code>方法它的作用只是唤醒主线程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self performSelectorOnMainThread:@selector(WakeUpMainThread) withObject:nil waitUntilDone:NO];</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;iOS小结-解决presentViewController延迟问题&quot;&gt;&lt;a href=&quot;#iOS小结-解决presentViewController延迟问题&quot; class=&quot;headerlink&quot; title=&quot;iOS小结(解决presentViewControl
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="https://near2sea.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="ios" scheme="https://near2sea.github.io/tags/ios/"/>
+    
+  </entry>
+  
+  <entry>
     <title>css技巧与经验</title>
     <link href="https://near2sea.github.io/2018/12/20/css%E6%8A%80%E5%B7%A7%E4%B8%8E%E7%BB%8F%E9%AA%8C/"/>
     <id>https://near2sea.github.io/2018/12/20/css技巧与经验/</id>
     <published>2018-12-20T04:20:16.000Z</published>
-    <updated>2018-12-20T04:21:32.174Z</updated>
+    <updated>2018-12-20T04:21:54.235Z</updated>
     
     <content type="html"><![CDATA[<h2 id="css使用技巧与经验"><a href="#css使用技巧与经验" class="headerlink" title="css使用技巧与经验"></a>css使用技巧与经验</h2><ul><li><a href="https://www.css88.com/book/css/experience/skill.htm" target="_blank" rel="noopener">https://www.css88.com/book/css/experience/skill.htm</a></li></ul>]]></content>
     
