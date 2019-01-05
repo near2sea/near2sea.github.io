@@ -1,9 +1,10 @@
 ---
 title: ios小结presentViewController延迟问题
-date: 2019-01-05 17:17:23
 tags: ios
-categories: 
-- 前端
+categories:
+  - 前端
+abbrlink: 21826
+date: 2019-01-05 17:17:23
 ---
 
 # iOS小结(解决presentViewController延迟问题)
