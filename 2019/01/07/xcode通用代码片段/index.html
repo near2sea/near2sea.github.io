@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>ios小结presentViewController延迟问题 | Hexo</title>
+<title>xcode通用代码片段 | Hexo</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -128,9 +128,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="ios小结presentViewController延迟问题">
+        <h1 id="xcode通用代码片段">
             
-	            ios小结presentViewController延迟问题
+	            xcode通用代码片段
             
         </h1>
         <div class="post-meta">
@@ -163,7 +163,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2019/01/05</span>
+            <span class="date-meta">2019/01/07</span>
         </span>
         
     
@@ -174,17 +174,22 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="iOS小结-解决presentViewController延迟问题"><a href="#iOS小结-解决presentViewController延迟问题" class="headerlink" title="iOS小结(解决presentViewController延迟问题)"></a>iOS小结(解决presentViewController延迟问题)</h1><p>在 iOS 中，当使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-(void)presentViewController:(UIViewController*)viewControllerToPresent animated:(BOOL)flag completion:(void (^__nullable)(void))completion</span><br></pre></td></tr></table></figure>
-<p>方法进行界面跳转的时候，有时候会出现延迟，这个延迟有时候会有好几秒的时间才会执行 completion，有时候干脆就一直不会跳转。</p>
-<ul>
-<li>由于某种原因，<code>presentViewController</code>跳转时completion的内容并不会真的马上触发执行，除非有一个主线程事件触发这种消费。比如在弹出慢的时候，你随便点击一下屏幕，马上就能弹出来</li>
+        <h1 id="用于xcode使用的ios通用代码片段"><a href="#用于xcode使用的ios通用代码片段" class="headerlink" title="用于xcode使用的ios通用代码片段"></a>用于xcode使用的ios通用代码片段</h1><ul>
+<li><a href="https://github.com/QMUI/QMUI_iOS_CodeSnippets" target="_blank" rel="noopener">https://github.com/QMUI/QMUI_iOS_CodeSnippets</a></li>
 </ul>
-<p>所以得出相应的解决方法：</p>
-<p>1.在主线程中执行跳转：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dispatch_async(dispatch_get_main_queue(), ^(void)&#123;</span><br><span class="line">            [currentVC presentViewController:presentVC animated:YES completion:^&#123;</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<p>2.在执行跳转前唤醒主线程,<code>WakeUpMainThread</code>方法它的作用只是唤醒主线程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[self performSelectorOnMainThread:@selector(WakeUpMainThread) withObject:nil waitUntilDone:NO];</span><br></pre></td></tr></table></figure>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>Xcode 的 Code Snippets 文件存放于 ~/Library/Developer/Xcode/UserData/CodeSnippets 目录，只要直接把 *.codesnippets 文件放到这个目录下（若没有则自己创建），重启 Xcode 即可生效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Library/Developer/Xcode/UserData/CodeSnippets</span><br><span class="line">git clone https://github.com/QMUI/QMUI_iOS_CodeSnippets.git ./</span><br></pre></td></tr></table></figure>
+<h2 id="快捷键汇总"><a href="#快捷键汇总" class="headerlink" title="快捷键汇总"></a>快捷键汇总</h2><ul>
+<li><code>propertySwizzleWeak</code> - 用 <code>swizzle</code> 的方式定义一个 <code>weak</code> 的property</li>
+<li><p><code>sharedInstance</code> - 为当前类创建一个实现单例功能的 <code>sharedInstance</code> 方法</p>
+</li>
+<li><p><code>block*</code> - block相关</p>
+</li>
+<li><code>pragma</code> - 展开一个用于 Xcode 导航的 #pragma mark - 宏</li>
+<li><code>__weakSelf</code> - 定义一个 weak 的 self 指针</li>
+<li><code>timeConsuming</code> - 展开一段用 <code>CACurrentMediaTime()</code> 来计算方法耗时的代码</li>
+</ul>
+
     </div>
     
     <div class="post-footer">
@@ -201,15 +206,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2019/01/07/xcode通用代码片段/" class="pre-post btn btn-default" title="xcode通用代码片段">
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">xcode通用代码片段</span>
-        </a>
     
-    
-        <a href="/2018/12/20/css技巧与经验/" class="next-post btn btn-default" title="css技巧与经验">
+        <a href="/2019/01/05/ios小结presentViewController延迟问题/" class="next-post btn btn-default" title="ios小结presentViewController延迟问题">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">css技巧与经验</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">ios小结presentViewController延迟问题</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -252,7 +252,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS小结-解决presentViewController延迟问题"><span class="toc-text">iOS小结(解决presentViewController延迟问题)</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#用于xcode使用的ios通用代码片段"><span class="toc-text">用于xcode使用的ios通用代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用方式"><span class="toc-text">使用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷键汇总"><span class="toc-text">快捷键汇总</span></a></li></ol></li></ol>
         
     </div>
 </aside>
