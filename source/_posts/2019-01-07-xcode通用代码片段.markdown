@@ -1,0 +1,31 @@
+---
+title: xcode通用代码片段
+tags: ios
+categories:
+  - 前端
+abbrlink: 62547
+date: 2019-01-07 14:29:49
+---
+
+# 用于xcode使用的ios通用代码片段
+* https://github.com/QMUI/QMUI_iOS_CodeSnippets
+
+## 使用方式
+Xcode 的 Code Snippets 文件存放于 ~/Library/Developer/Xcode/UserData/CodeSnippets 目录，只要直接把 *.codesnippets 文件放到这个目录下（若没有则自己创建），重启 Xcode 即可生效。
+
+```
+cd ~/Library/Developer/Xcode/UserData/CodeSnippets
+git clone https://github.com/QMUI/QMUI_iOS_CodeSnippets.git ./
+```
+
+## 快捷键汇总
+
+* `propertySwizzleWeak` - 用 `swizzle` 的方式定义一个 `weak` 的property
+* `sharedInstance` - 为当前类创建一个实现单例功能的 `sharedInstance` 方法
+
+* `block*` - block相关
+* `pragma` - 展开一个用于 Xcode 导航的 #pragma mark - 宏
+* `__weakSelf` - 定义一个 weak 的 self 指针
+* `timeConsuming` - 展开一段用 `CACurrentMediaTime()` 来计算方法耗时的代码
+
+
