@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>xcode通用代码片段 | Hexo</title>
+<title>ios搭建项目脚手架 | Hexo</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -128,9 +128,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="xcode通用代码片段">
+        <h1 id="ios搭建项目脚手架">
             
-	            xcode通用代码片段
+	            ios搭建项目脚手架
             
         </h1>
         <div class="post-meta">
@@ -138,8 +138,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/前端">
-            前端
+        <a href="/categories/ ">
+             
         </a>
     </span>
     
@@ -163,7 +163,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2019/01/07</span>
+            <span class="date-meta">2019/01/09</span>
         </span>
         
     
@@ -174,22 +174,20 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="用于xcode使用的ios通用代码片段"><a href="#用于xcode使用的ios通用代码片段" class="headerlink" title="用于xcode使用的ios通用代码片段"></a>用于xcode使用的ios通用代码片段</h1><ul>
-<li><a href="https://github.com/QMUI/QMUI_iOS_CodeSnippets" target="_blank" rel="noopener">https://github.com/QMUI/QMUI_iOS_CodeSnippets</a></li>
-</ul>
-<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>Xcode 的 Code Snippets 文件存放于 ~/Library/Developer/Xcode/UserData/CodeSnippets 目录，只要直接把 *.codesnippets 文件放到这个目录下（若没有则自己创建），重启 Xcode 即可生效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Library/Developer/Xcode/UserData/CodeSnippets</span><br><span class="line">git clone https://github.com/QMUI/QMUI_iOS_CodeSnippets.git ./</span><br></pre></td></tr></table></figure>
-<h2 id="快捷键汇总"><a href="#快捷键汇总" class="headerlink" title="快捷键汇总"></a>快捷键汇总</h2><ul>
-<li><code>propertySwizzleWeak</code> - 用 <code>swizzle</code> 的方式定义一个 <code>weak</code> 的property</li>
-<li><p><code>sharedInstance</code> - 为当前类创建一个实现单例功能的 <code>sharedInstance</code> 方法</p>
+        <h1 id="使用carthage"><a href="#使用carthage" class="headerlink" title="使用carthage"></a>使用carthage</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install carthage</span><br><span class="line"># 项目根目录下</span><br><span class="line">touch Cartfile</span><br><span class="line"># 下载源码生成framework</span><br><span class="line">carthage update</span><br><span class="line">carthage update --platform ios</span><br></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
+<li><p>打开 Build Phases 选项卡. 点击 + 添加，选择 New Run Script</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/carthage copy-frameworks</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>block*</code> - block相关</p>
+<li><p>在input Files项添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework</span><br></pre></td></tr></table></figure>
 </li>
-<li><code>pragma</code> - 展开一个用于 Xcode 导航的 #pragma mark - 宏</li>
-<li><code>__weakSelf</code> - 定义一个 weak 的 self 指针</li>
-<li><code>timeConsuming</code> - 展开一段用 <code>CACurrentMediaTime()</code> 来计算方法耗时的代码</li>
+<li><p>在Output Files项添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-
+<h2 id="Cartfile配置"><a href="#Cartfile配置" class="headerlink" title="Cartfile配置"></a>Cartfile配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">github &quot;near2sea/Mantle&quot; &quot;feature/near2sea&quot; #扩展Mantle代替github &quot;Mantle/Mantle&quot;</span><br><span class="line"></span><br><span class="line">github &quot;near2sea/YTKNetwork&quot; &quot;feature/near2sea&quot; #优化项目代替github &quot;yuantiku/YTKNetwork&quot; ~&gt; 2.0</span><br><span class="line"></span><br><span class="line">github &quot;near2sea/XLForm&quot; &quot;feature/datasource&quot; #扩展xlform代替github &quot;xmartlabs/XLForm&quot; ~&gt; 4.0</span><br><span class="line"></span><br><span class="line">github &quot;jdg/MBProgressHUD&quot; ~&gt; 1.1.0</span><br><span class="line"></span><br><span class="line">github &quot;SVProgressHUD/SVProgressHUD&quot;</span><br><span class="line"></span><br><span class="line">github &quot;ibireme/YYCache&quot;</span><br><span class="line"></span><br><span class="line">github &quot;ibireme/YYCategories&quot;</span><br><span class="line"></span><br><span class="line">github &quot;layoutBox/FlexLayout&quot; #把yoga打包成framework,build Settings选项卡Always Embed Swift Standard Libraries属性设置为YES</span><br><span class="line"></span><br><span class="line">github &quot;airbnb/lottie-ios&quot; &quot;master&quot;</span><br><span class="line"></span><br><span class="line">## 可选</span><br><span class="line">github &quot;WenchaoD/FSCalendar&quot;</span><br><span class="line"></span><br><span class="line">github &quot;hackiftekhar/IQKeyboardManager&quot;</span><br><span class="line"></span><br><span class="line">github &quot;Ramotion/circle-menu&quot;</span><br><span class="line"></span><br><span class="line">github &quot;MortimerGoro/MGSwipeTableCell&quot; #cell左右滑动</span><br><span class="line"></span><br><span class="line">github &quot;chiahsien/CHTCollectionViewWaterfallLayout&quot; #类似瀑布流</span><br><span class="line"></span><br><span class="line">github &quot;realm/realm-cocoa&quot;</span><br><span class="line"></span><br><span class="line">## swift</span><br><span class="line">github &quot;ReactiveX/RxSwift&quot; ~&gt; 4.0</span><br><span class="line"></span><br><span class="line">github &quot;Alamofire/Alamofire&quot; &quot;5.0.0.beta.1&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="使用pod"><a href="#使用pod" class="headerlink" title="使用pod"></a>使用pod</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;YogaKit&apos;, &apos;~&gt; 1.7&apos; #需加入libc++.tbd,已加FlexLayout则不需要</span><br></pre></td></tr></table></figure>
     </div>
     
     <div class="post-footer">
@@ -206,15 +204,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2019/01/09/ios搭建项目脚手架/" class="pre-post btn btn-default" title="ios搭建项目脚手架">
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">ios搭建项目脚手架</span>
-        </a>
     
-    
-        <a href="/2019/01/05/ios小结presentViewController延迟问题/" class="next-post btn btn-default" title="ios小结presentViewController延迟问题">
+        <a href="/2019/01/07/xcode通用代码片段/" class="next-post btn btn-default" title="xcode通用代码片段">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">ios小结presentViewController延迟问题</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">xcode通用代码片段</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -257,7 +250,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#用于xcode使用的ios通用代码片段"><span class="toc-text">用于xcode使用的ios通用代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用方式"><span class="toc-text">使用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快捷键汇总"><span class="toc-text">快捷键汇总</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用carthage"><span class="toc-text">使用carthage</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cartfile配置"><span class="toc-text">Cartfile配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用pod"><span class="toc-text">使用pod</span></a></li></ol>
         
     </div>
 </aside>
