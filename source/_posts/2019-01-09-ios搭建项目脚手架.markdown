@@ -1,0 +1,79 @@
+---
+title: ios搭建项目脚手架
+tags: ios
+abbrlink: 21050
+date: 2019-01-09 10:32:20
+---
+
+# 使用carthage
+## 安装
+
+```
+brew update
+brew install carthage
+# 项目根目录下
+touch Cartfile
+# 下载源码生成framework
+carthage update
+carthage update --platform ios
+```
+
+## 配置 
+* 打开 Build Phases 选项卡. 点击 + 添加，选择 New Run Script
+```
+/usr/local/bin/carthage copy-frameworks
+```
+
+* 在input Files项添加
+```
+$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework
+```
+
+* 在Output Files项添加
+```
+$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework
+```
+
+## Cartfile配置
+```
+github "near2sea/Mantle" "feature/near2sea" #扩展Mantle代替github "Mantle/Mantle"
+
+github "near2sea/YTKNetwork" "feature/near2sea" #优化项目代替github "yuantiku/YTKNetwork" ~> 2.0
+
+github "near2sea/XLForm" "feature/datasource" #扩展xlform代替github "xmartlabs/XLForm" ~> 4.0
+
+github "jdg/MBProgressHUD" ~> 1.1.0
+
+github "SVProgressHUD/SVProgressHUD"
+
+github "ibireme/YYCache"
+
+github "ibireme/YYCategories"
+
+github "layoutBox/FlexLayout" #把yoga打包成framework,build Settings选项卡Always Embed Swift Standard Libraries属性设置为YES
+
+github "airbnb/lottie-ios" "master"
+
+## 可选
+github "WenchaoD/FSCalendar"
+
+github "hackiftekhar/IQKeyboardManager"
+
+github "Ramotion/circle-menu"
+
+github "MortimerGoro/MGSwipeTableCell" #cell左右滑动
+
+github "chiahsien/CHTCollectionViewWaterfallLayout" #类似瀑布流
+
+github "realm/realm-cocoa"
+
+## swift
+github "ReactiveX/RxSwift" ~> 4.0
+
+github "Alamofire/Alamofire" "5.0.0.beta.1"
+```
+
+# 使用pod
+```
+pod 'YogaKit', '~> 1.7' #需加入libc++.tbd,已加FlexLayout则不需要
+```
