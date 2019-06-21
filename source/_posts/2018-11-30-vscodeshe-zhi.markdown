@@ -97,6 +97,30 @@ abbrlink: 53471
 }
 ```
 
+## vscode工具设置
+- https://code.visualstudio.com/docs/editor/userdefinedsnippets
+```json
+{
+	"Print to console": {
+		"scope": "dart",
+		"prefix": "modelClass",
+		"body": [
+			"import 'package:json_annotation/json_annotation.dart';",
+			"",
+			"part '${TM_FILENAME/(.*)\\.dart$/${1}/gi}.g.dart';",
+			"@JsonSerializable()",
+			"class ${TM_FILENAME/(.*)\\.dart$/${1:/capitalize}/} {",
+			"  $2",
+			"  ${TM_FILENAME/(.*)\\.dart$/${1:/capitalize}/}();",
+			"  factory ${TM_FILENAME/(.*)\\.dart$/${1:/capitalize}/}.fromJson(Map<String, dynamic> json) => _$${TM_FILENAME/(.*)\\.dart$/${1:/capitalize}/}FromJson(json);",
+			"  Map<String, dynamic> toJson() => _$${TM_FILENAME/(.*)\\.dart$/${1:/capitalize}/}ToJson(this);",
+			"}"
+		],
+		"description": "Dart Create Model Class"
+	}
+}
+```
+
 ## vscode快捷键使用
 * `command+K command+Q` 快速定位最后一次文件修改的地方
 * `command+K command+S` 快捷键映射列表
