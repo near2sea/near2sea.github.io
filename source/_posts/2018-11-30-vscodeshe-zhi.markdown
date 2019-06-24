@@ -101,7 +101,7 @@ abbrlink: 53471
 - https://code.visualstudio.com/docs/editor/userdefinedsnippets
 ```json
 {
-	"Print to console": {
+	"Create Model Class": {
 		"scope": "dart",
 		"prefix": "modelClass",
 		"body": [
@@ -109,11 +109,12 @@ abbrlink: 53471
 			"",
 			"part '${TM_FILENAME/(.*)\\.dart$/${1}/gi}.g.dart';",
 			"@JsonSerializable()",
-			"class ${TM_FILENAME/(.*)\\.dart$/${1:/capitalize}/} {",
-			"  $2",
-			"  ${TM_FILENAME/(.*)\\.dart$/${1:/capitalize}/}();",
-			"  factory ${TM_FILENAME/(.*)\\.dart$/${1:/capitalize}/}.fromJson(Map<String, dynamic> json) => _$${TM_FILENAME/(.*)\\.dart$/${1:/capitalize}/}FromJson(json);",
-			"  Map<String, dynamic> toJson() => _$${TM_FILENAME/(.*)\\.dart$/${1:/capitalize}/}ToJson(this);",
+			"class ${TM_FILENAME_BASE/\\w*/${0:/capitalize}/} {",
+			"  ${1:@JsonKey(name: \"tarball_url\")}",
+			"  ${2:String name;}",
+			"  ${TM_FILENAME_BASE/\\w*/${0:/capitalize}/}(${3:this.name});",
+			"  factory ${TM_FILENAME_BASE/\\w*/${0:/capitalize}/}.fromJson(Map<String, dynamic> json) => _$${TM_FILENAME_BASE/\\w*/${0:/capitalize}/}FromJson(json);",
+			"  Map<String, dynamic> toJson() => _$${TM_FILENAME_BASE/\\w*/${0:/capitalize}/}ToJson(this);",
 			"}"
 		],
 		"description": "Dart Create Model Class"
