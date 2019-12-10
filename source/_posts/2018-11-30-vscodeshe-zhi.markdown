@@ -61,6 +61,43 @@ abbrlink: 53471
 }
 ```
 
+* vscode在windows下设置如下, 安装Prettier+ (Benas Svipas开发) Prettier (code formatter) for VS Code
+```json
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontSize": 16, // 字体大小
+  // 以下是代码格式化配置
+  "editor.formatOnSave": true, // 每次保存的时候自动格式化
+  "editor.tabSize": 2, // 代码缩进修改成2个空格
+  "eslint.autoFixOnSave": true, // 去掉代码结尾的分号
+  "prettier.singleQuote": true, // 使用带引号替代双引号
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true, // 让函数(名)和后面的括号之间加个空格
+  "vetur.format.defaultFormatter.html": "js-beautify-html", //格式化.vue中html
+  "vetur.format.defaultFormatter.js": "vscode-typescript", //让vue中的js按编辑器自带的ts格式进行格式化
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "force-aligned" //属性强制折行对齐
+    }
+  },
+  "window.zoomLevel": 0,
+  "editor.snippetSuggestions": "top",
+  "editor.formatOnPaste": true,
+  "explorer.confirmDelete": false,
+  "git.autofetch": true,
+  "breadcrumbs.enabled": true,
+  "files.autoSave": "afterDelay",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "terminal.integrated.fontSize": 16,
+  "git.confirmSync": false,
+  "editor.suggestSelection": "first",
+  "prettier.semi": false,
+  "gitlens.views.repositories.files.layout": "list",
+  "prettier.printWidth": 500
+}
+```
+
 * 打开工具栏 *Code -> 用户代码片段*, 新件vue模板, *vue.json*, 在vue文件中，键入`vue`，按下`tab`键快速生成模板
 ```json
 {
